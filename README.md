@@ -71,5 +71,32 @@ Dado que quero disponibilizar um ingresso PLATEIA
 Quando informar o valor
 Então o mesmo deve ser 300
 
+# US#3 Disponibilizar Vários Tipos de Ingressos
 
+História
+Como gestor de eventos
+Quero  para cada evento disponibilizar variados tipos de ingressos com período de vendas
+Para que eu possa atingir vários níveis de público
 
+Critérios
+
+#1
+Dado que pretendo disponibilizar venda online
+Quando cadastrar o evento
+Então devo definir um período de venda obrigatório
+
+#2
+Dado que quero criar um evento
+Quando informar a data de início de venda posterior a data fim de venda do evento
+Então sistema não deve permitir salvar e informa a mensagem:
+"A data de início de venda deve ser inferior a data de fim"
+
+#3
+Dado que quero vincular os tipos de ingresso disponíveis para o evento
+Quando cadastrar o evento
+Então quero definir quais tipos de ingressos estarão disponíveis
+
+#4
+Dado que quero criar um evento com ingressos
+Quando salvar e ocorrer tipos de ingressos duplicados
+Então sistema não deve permitir salvar
