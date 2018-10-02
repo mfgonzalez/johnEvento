@@ -30,15 +30,15 @@ Então os campos abaixo devem ser obrigatórios:
 
 #3
 Dado que quero criar um evento
-Quando informar um nome maior que 150 caracteres e salvar
+Quando informar um name maior que 150 caracteres e salvar
 Então não deve permitir salvar e informar a mensagem:
-"O nome permite no máximo 150 caracteres"
+"O name permite no máximo 150 caracteres"
 
 #4
 Dado que quero criar um evento
-Quando informar uma data inferior ao do dia atual e salvar
+Quando informar uma date inferior ao do dia atual e salvar
 Então não deve permitir salvar e informar a mensagem:
-"A data do evento deve ser igual ou maior que a de hoje"
+"A date do evento deve ser igual ou maior que a de hoje"
 
 
 
@@ -87,9 +87,9 @@ Então devo definir um período de venda obrigatório
 
 #2
 Dado que quero criar um evento
-Quando informar a data de início de venda posterior a data fim de venda do evento
+Quando informar a date de início de venda posterior a date fim de venda do evento
 Então sistema não deve permitir salvar e informa a mensagem:
-"A data de início de venda deve ser inferior a data de fim"
+"A date de início de venda deve ser inferior a date de fim"
 
 #3
 Dado que quero vincular os tipos de ingresso disponíveis para o evento

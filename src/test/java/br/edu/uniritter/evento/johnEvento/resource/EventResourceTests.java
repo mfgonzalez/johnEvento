@@ -10,12 +10,12 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
-public class EventoResourceTests extends JohnEventoApplicationTests {
+public class EventResourceTests extends JohnEventoApplicationTests {
 
     @Test
     public void deve_incluir_evento() throws Exception {
         final LocalDateTime dataEvento = LocalDateTime.now().plusMonths(1);
-        final Event evento = new Event(null, "nome evento", dataEvento);
+        final Event evento = new Event(null, "name evento", dataEvento);
         RestAssured.given()
                 .request()
                 .header("Accept", ContentType.ANY)
@@ -28,7 +28,7 @@ public class EventoResourceTests extends JohnEventoApplicationTests {
                 .log().body()
                 .and()
                 .statusCode(HttpStatus.CREATED.value())
-                .body("nome", Matchers.equalTo("nome evento"));
+                .body("name", Matchers.equalTo("name evento"));
     }
 
     @Test
@@ -48,7 +48,7 @@ public class EventoResourceTests extends JohnEventoApplicationTests {
                 .and()
                 .statusCode(HttpStatus.BAD_REQUEST.value())
                 .body(
-                        "error", Matchers.equalTo("O nome do evento é obrigatório")
+                        "error", Matchers.equalTo("O name do evento é obrigatório")
                 );
     }
 
@@ -70,13 +70,13 @@ public class EventoResourceTests extends JohnEventoApplicationTests {
                 .and()
                 .statusCode(HttpStatus.BAD_REQUEST.value())
                 .body(
-                        "error", Matchers.equalTo("O nome permite no máximo 150 caracteres")
+                        "error", Matchers.equalTo("O name permite no máximo 150 caracteres")
                 );
     }
 
     @Test
     public void deve_retornar_erro_data_nao_informada() throws Exception {
-        final Event evento = new Event(null, "nome evento", null);
+        final Event evento = new Event(null, "name evento", null);
         RestAssured.given()
                 .request()
                 .header("Accept", ContentType.ANY)
@@ -90,14 +90,14 @@ public class EventoResourceTests extends JohnEventoApplicationTests {
                 .and()
                 .statusCode(HttpStatus.BAD_REQUEST.value())
                 .body(
-                        "error", Matchers.equalTo("A data do evento é obrigatória")
+                        "error", Matchers.equalTo("A date do evento é obrigatória")
                 );
     }
 
     @Test
     public void deve_retornar_erro_evento_data_passada() throws Exception {
         final LocalDateTime dataEvento = LocalDateTime.now().minusMonths(1);
-        final Event evento = new Event(null, "nome evento", dataEvento);
+        final Event evento = new Event(null, "name evento", dataEvento);
         RestAssured.given()
                 .request()
                 .header("Accept", ContentType.ANY)
@@ -111,7 +111,7 @@ public class EventoResourceTests extends JohnEventoApplicationTests {
                 .and()
                 .statusCode(HttpStatus.BAD_REQUEST.value())
                 .body(
-                    "error", Matchers.equalTo("A data do evento deve ser igual ou maior que a de hoje")
+                    "error", Matchers.equalTo("A date do evento deve ser igual ou maior que a de hoje")
                 );
     }
 
