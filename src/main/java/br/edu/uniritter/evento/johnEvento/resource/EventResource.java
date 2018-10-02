@@ -2,8 +2,8 @@ package br.edu.uniritter.evento.johnEvento.resource;
 
 import br.edu.uniritter.evento.johnEvento.model.ErrorWrapper;
 import br.edu.uniritter.evento.johnEvento.model.Event;
-import br.edu.uniritter.evento.johnEvento.service.EventoService;
-import br.edu.uniritter.evento.johnEvento.service.exception.CampoInvalidoException;
+import br.edu.uniritter.evento.johnEvento.service.EventService;
+import br.edu.uniritter.evento.johnEvento.service.exception.InvalidFieldException;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/evento")
-public class EventoResource {
+public class EventResource {
 
-    private EventoService service;
+    private EventService service;
 
     @Autowired
-    public EventoResource(EventoService service) {
+    public EventResource(EventService service) {
         this.service = service;
     }
 
@@ -29,13 +29,13 @@ public class EventoResource {
             @ApiResponse(code = 400, message = "Requisição inválida")
     })
     @PostMapping
-    public ResponseEntity<Event> add(@RequestBody Event event) throws CampoInvalidoException {
-        Event newEvent = service.salvar(event);
+    public ResponseEntity<Event> add(@RequestBody Event event) throws InvalidFieldException {
+        Event newEvent = service.save(event);
         return new ResponseEntity<>(newEvent, HttpStatus.CREATED);
     }
 
-    @ExceptionHandler(CampoInvalidoException.class)
-    public ResponseEntity<ErrorWrapper> handleUnicidadeCpfException(CampoInvalidoException e) {
+    @ExceptionHandler(InvalidFieldException.class)
+    public ResponseEntity<ErrorWrapper> handleUnicidadeCpfException(InvalidFieldException e) {
         return new ResponseEntity<>(new ErrorWrapper(e.getMessage()), HttpStatus.BAD_REQUEST);
     }    
 
