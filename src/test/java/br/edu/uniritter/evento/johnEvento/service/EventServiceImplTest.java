@@ -1,6 +1,8 @@
 package br.edu.uniritter.evento.johnEvento.service;
 
+import br.edu.uniritter.evento.johnEvento.model.AudienceTicket;
 import br.edu.uniritter.evento.johnEvento.model.Event;
+import br.edu.uniritter.evento.johnEvento.model.TicketType;
 import br.edu.uniritter.evento.johnEvento.repository.EventRepository;
 import br.edu.uniritter.evento.johnEvento.service.exception.InvalidFieldException;
 import br.edu.uniritter.evento.johnEvento.service.impl.EventServiceImpl;
@@ -16,6 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -37,6 +40,8 @@ public class EventServiceImplTest {
 
     private Event newEvent;
     private Event createdEvent;
+    private List<TicketType> duplicatedTicketTypes;
+
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
@@ -55,6 +60,9 @@ public class EventServiceImplTest {
         service = new EventServiceImpl(repository, nameValidator, dateValidator);
         newEvent = new Event(null, EVENT_NAME, FUTURE_EVENT_DATE, TICKETS_SALES_START_DATE, TICKETS_SALES_END_DATE, new ArrayList<>());
         createdEvent = new Event(1L, EVENT_NAME, FUTURE_EVENT_DATE, TICKETS_SALES_START_DATE, TICKETS_SALES_END_DATE, new ArrayList<>());
+        duplicatedTicketTypes = new ArrayList<>();
+        duplicatedTicketTypes.add(new AudienceTicket());
+        duplicatedTicketTypes.add(new AudienceTicket());
     }
 
     @Test
@@ -127,6 +135,14 @@ public class EventServiceImplTest {
         newEvent.setTicketsSalesStartDateTime(INVALID_TICKETS_SALES_START_DATE);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("A date de início de venda deve ser inferior a date de fim");
+        service.save(newEvent);
+    }
+
+    @Test
+    public void TiposDeIngressosDuplicados() throws Exception {
+        newEvent.setAvailableTicketTypes(duplicatedTicketTypes);
+        expectedException.expect(InvalidFieldException.class);
+        expectedException.expectMessage("O evento possui tipos de ingressos duplicados");
         service.save(newEvent);
     }
 

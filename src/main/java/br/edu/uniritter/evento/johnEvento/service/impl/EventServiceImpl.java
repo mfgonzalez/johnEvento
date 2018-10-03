@@ -7,6 +7,7 @@ import br.edu.uniritter.evento.johnEvento.service.exception.InvalidFieldExceptio
 import br.edu.uniritter.evento.johnEvento.validator.DateValidator;
 import br.edu.uniritter.evento.johnEvento.validator.NameValidator;
 import br.edu.uniritter.evento.johnEvento.validator.SalesDateValidator;
+import br.edu.uniritter.evento.johnEvento.validator.TicketsValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,7 @@ public class EventServiceImpl implements EventService {
         NameValidator.validate(event.getName());
         DateValidator.validate(event.getDate());
         SalesDateValidator.validate(event.getTicketsSalesStartDateTime(), event.getTicketsSalesEndDateTime());
+        TicketsValidator.validate(event.getAvailableTicketTypes());
         return repository.save(event);
     }
 
