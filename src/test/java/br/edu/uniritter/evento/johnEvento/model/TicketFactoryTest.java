@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
@@ -44,6 +45,12 @@ public class TicketFactoryTest {
         TicketType ticketType = ticketFactory.getTicketType("PLATEIA");
         assertEquals("PLATEIA", ticketType.getName());
         assertEquals(new Float(300), ticketType.getValue());
+    }
+
+    @Test
+    public void validaIngressoNaoExistente() {
+        TicketType ticketType = ticketFactory.getTicketType("NAO EXISTE");
+        assertNull(ticketType);
     }
 
 }

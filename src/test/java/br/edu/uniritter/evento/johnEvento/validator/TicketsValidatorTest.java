@@ -46,4 +46,9 @@ public class TicketsValidatorTest {
         TicketsValidator.validate(duplicatedTicketTypes);
     }
 
+    @Test
+    public void permitirTiposDeIngressosNaoInformados() throws Exception{
+        TicketsValidator.validate(null);
+        assertTrue("Não lançou exeception".equals("Não lançou exeception"));
+    }
 }
