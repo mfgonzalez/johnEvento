@@ -4,9 +4,12 @@ import br.edu.uniritter.evento.johnEvento.service.exception.InvalidFieldExceptio
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 
+@RunWith(SpringRunner.class)
 public class SalesDateValidatorTest {
 
     private static final LocalDateTime NULL_DATE_TIME = null;
