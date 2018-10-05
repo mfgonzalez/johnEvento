@@ -3,7 +3,7 @@ Trabalho da disciplina de Introdução ao Desenvolvimento Ágil - Uniritter - 20
 
 [![Build Status](https://travis-ci.org/mfgonzalez/johnEvento.svg?branch=master)](https://travis-ci.org/mfgonzalez/johnEvento)
 [![codecov](https://codecov.io/gh/mfgonzalez/johnEvento/branch/master/graph/badge.svg)](https://codecov.io/gh/mfgonzalez/johnEvento)
-[![Quality Gates](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=alert_status)]
+![Quality Gates](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=alert_status)
 
 # US#1 - Criar evento
 
