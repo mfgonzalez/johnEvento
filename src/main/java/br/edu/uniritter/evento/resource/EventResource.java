@@ -1,5 +1,6 @@
 package br.edu.uniritter.evento.resource;
 
+import br.edu.uniritter.evento.dto.EventDto;
 import br.edu.uniritter.evento.model.ErrorWrapper;
 import br.edu.uniritter.evento.model.Event;
 import br.edu.uniritter.evento.service.EventService;
@@ -29,8 +30,8 @@ public class EventResource {
             @ApiResponse(code = 400, message = "Requisição inválida")
     })
     @PostMapping
-    public ResponseEntity<Event> add(@RequestBody Event event) throws InvalidFieldException {
-        Event newEvent = service.save(event);
+    public ResponseEntity<Event> add(@RequestBody EventDto dto) throws InvalidFieldException {
+        Event newEvent = service.save(dto);
         return new ResponseEntity<>(newEvent, HttpStatus.CREATED);
     }
 
