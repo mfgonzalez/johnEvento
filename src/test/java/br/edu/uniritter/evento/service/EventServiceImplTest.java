@@ -1,5 +1,6 @@
 package br.edu.uniritter.evento.service;
 
+import br.edu.uniritter.evento.converter.EventEntityToDto;
 import br.edu.uniritter.evento.converter.EventoDtoToEntity;
 import br.edu.uniritter.evento.dto.EventDto;
 import br.edu.uniritter.evento.model.AudienceTicket;
@@ -58,11 +59,14 @@ public class EventServiceImplTest {
     private DateValidator dateValidator;
 
     @MockBean
-    private EventoDtoToEntity converter;
+    private EventoDtoToEntity dtoToEntity;
+
+    @MockBean
+    private EventEntityToDto entityToDto;
 
     @Before
     public void setup() {
-        service = new EventServiceImpl(repository, nameValidator, dateValidator, converter);
+        service = new EventServiceImpl(repository, dtoToEntity, entityToDto);
         newEventDto = new EventDto(EVENT_NAME, FUTURE_EVENT_DATE, TICKETS_SALES_START_DATE, TICKETS_SALES_END_DATE, new ArrayList<>());
         createdEvent = new Event(1L, EVENT_NAME, FUTURE_EVENT_DATE, TICKETS_SALES_START_DATE, TICKETS_SALES_END_DATE, new ArrayList<>());
         duplicatedTicketTypes = new ArrayList<>();
@@ -73,18 +77,18 @@ public class EventServiceImplTest {
 
     @Test
     public void camposNomeEDataDoEventoDevemSerInformados() throws Exception{
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         when(repository.save(any(Event.class))).thenReturn(createdEvent);
-        Event result = service.save(newEventDto);
-        assertEquals(new Long(1), result.getId());
-        assertEquals(newEventDto.getName(), result.getName());
-        assertTrue(newEventDto.getDate().equals(result.getDate()));
+        when(entityToDto.convert(any(Event.class))).thenReturn(newEventDto);
+        EventDto result = service.save(newEventDto);
+        assertEquals(createdEvent.getName(), result.getName());
+        assertTrue(createdEvent.getDate().equals(result.getDate()));
     }
 
     @Test
     public void campoNomeNaoInformadoAoSalvar() throws Exception{
         createdEvent.setName(null);
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("O nome do evento é obrigatório");
         service.save(newEventDto);
@@ -93,7 +97,7 @@ public class EventServiceImplTest {
     @Test
     public void campoDataNaoInformadoAoSalvar() throws Exception{
         createdEvent.setDate(null);
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("A data do evento é obrigatória");
         service.save(newEventDto);
@@ -102,7 +106,7 @@ public class EventServiceImplTest {
     @Test
     public void campoNomeComMaisDe150Caracteres() throws Exception{
         createdEvent.setName(EVENT_NAME_151_CHARS);
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("O nome permite no máximo 150 caracteres");
         service.save(newEventDto);
@@ -111,7 +115,7 @@ public class EventServiceImplTest {
     @Test
     public void dataDoEventoNoPassado() throws Exception{
         createdEvent.setDate(PAST_EVENT_DATE);
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("A data do evento deve ser igual ou maior que a de hoje");
         service.save(newEventDto);
@@ -120,7 +124,7 @@ public class EventServiceImplTest {
     @Test
     public void dataDeInicioDeVendasDeIngressosNaoInformada() throws Exception {
         createdEvent.setTicketsSalesStartDateTime(null);
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("Período de vendas é obrigatório");
         service.save(newEventDto);
@@ -129,7 +133,7 @@ public class EventServiceImplTest {
     @Test
     public void dataDeFimDeVendasDeIngressosNaoInformada() throws Exception {
         createdEvent.setTicketsSalesEndDateTime(null);
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("Período de vendas é obrigatório");
         service.save(newEventDto);
@@ -138,7 +142,7 @@ public class EventServiceImplTest {
     @Test
     public void dataDeInicioEFimDeVendasDeIngressosNaoInformada() throws Exception {
         createdEvent.setTicketsSalesStartDateTime(null);
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         newEventDto.setTicketsSalesEndDateTime(null);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("Período de vendas é obrigatório");
@@ -148,7 +152,7 @@ public class EventServiceImplTest {
     @Test
     public void dataDeInicioSuperiorDataDeFimDeVendasDeIngressos() throws Exception {
         createdEvent.setTicketsSalesStartDateTime(INVALID_TICKETS_SALES_START_DATE);
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("A date de início de venda deve ser inferior a date de fim");
         service.save(newEventDto);
@@ -157,7 +161,7 @@ public class EventServiceImplTest {
     @Test
     public void TiposDeIngressosDuplicados() throws Exception {
         createdEvent.setAvailableTicketTypes(duplicatedTicketTypes);
-        when(converter.convert(any(EventDto.class))).thenReturn(createdEvent);
+        when(dtoToEntity.convert(any(EventDto.class))).thenReturn(createdEvent);
         expectedException.expect(InvalidFieldException.class);
         expectedException.expectMessage("O evento possui tipos de ingressos duplicados");
         service.save(newEventDto);

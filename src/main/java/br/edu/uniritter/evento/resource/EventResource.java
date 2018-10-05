@@ -30,8 +30,8 @@ public class EventResource {
             @ApiResponse(code = 400, message = "Requisição inválida")
     })
     @PostMapping
-    public ResponseEntity<Event> add(@RequestBody EventDto dto) throws InvalidFieldException {
-        Event newEvent = service.save(dto);
+    public ResponseEntity<EventDto> add(@RequestBody EventDto dto) throws InvalidFieldException {
+        EventDto newEvent = service.save(dto);
         return new ResponseEntity<>(newEvent, HttpStatus.CREATED);
     }
 

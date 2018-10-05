@@ -5,5 +5,5 @@ import br.edu.uniritter.evento.model.Event;
 import br.edu.uniritter.evento.service.exception.InvalidFieldException;
 
 public interface EventService {
-    Event save(EventDto event) throws InvalidFieldException;
+    EventDto save(EventDto event) throws InvalidFieldException;
 }
