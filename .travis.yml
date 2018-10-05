@@ -6,11 +6,17 @@ addons:
   apt:
     packages:
       - oracle-java9-installer
+  sonarcloud:
+    organization: "mfgonzalez-github" # the key of the org you chose at step #3
+    token:
+      secure: $SONAR_TOKEN # encrypted value of your token
+
 before_install:
   - chmod +x mvnw
 
 script:
-- ./mvnw clean install -B
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+#  - ./mvnw clean install -B
 
 deploy:
   provider: heroku
@@ -20,3 +26,8 @@ deploy:
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
