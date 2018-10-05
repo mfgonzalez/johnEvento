@@ -5,11 +5,6 @@ import br.edu.uniritter.evento.service.exception.InvalidFieldException;
 import java.time.LocalDateTime;
 
 public class DateValidator {
-
-    private DateValidator() {
-        throw new IllegalStateException("Utility class");
-    }
-
     public static void validate(LocalDateTime dateTime) throws InvalidFieldException {
         if (dateTime == null) {
             throw new InvalidFieldException("A data do evento é obrigatória");
@@ -18,5 +13,4 @@ public class DateValidator {
             throw new InvalidFieldException("A data do evento deve ser igual ou maior que a de hoje");
         }
     }
-
 }
