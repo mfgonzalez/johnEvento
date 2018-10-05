@@ -6,16 +6,16 @@ Trabalho da disciplina de Introdução ao Desenvolvimento Ágil - Uniritter - 20
 
 [![sonarcloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
 
-[![coverage](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=coverage)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
-[![ncloc](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=ncloc)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
-[![duplicated_lines_density](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
-[![sqale_index](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=sqale_index)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
-[![sqale_rating](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
-[![reliability_rating](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
-[![bugs](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=bugs)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
-[![code_smells](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=code_smells)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
-[![security_rating](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=security_rating)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
-[![vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![coverage](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=coverage)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![ncloc](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=ncloc)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![duplicated_lines_density](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![sqale_index](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=sqale_index)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![sqale_rating](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![reliability_rating](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![bugs](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=bugs)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![code_smells](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=code_smells)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![security_rating](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=security_rating)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
+[![vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
 
 # US#1 - Criar evento
 
