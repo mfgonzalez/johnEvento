@@ -31,4 +31,5 @@ public class DateValidatorTest {
         expectedException.expectMessage("A data do evento deve ser igual ou maior que a de hoje");
         DateValidator.validate(PAST_DATE_TIME);
     }
+
 }
