@@ -2,6 +2,8 @@
 Trabalho da disciplina de Introdução ao Desenvolvimento Ágil - Uniritter - 2018
 
 [![Build Status](https://travis-ci.org/mfgonzalez/johnEvento.svg?branch=master)](https://travis-ci.org/mfgonzalez/johnEvento)
+[![codecov](https://codecov.io/gh/mfgonzalez/johnEvento/branch/master/graph/badge.svg)](https://codecov.io/gh/mfgonzalez/johnEvento)
+
 ![sonarcloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
 
 ![coverage](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=coverage)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
