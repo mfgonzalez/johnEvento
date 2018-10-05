@@ -2,7 +2,6 @@ package br.edu.uniritter.evento.resource;
 
 import br.edu.uniritter.evento.dto.EventDto;
 import br.edu.uniritter.evento.model.ErrorWrapper;
-import br.edu.uniritter.evento.model.Event;
 import br.edu.uniritter.evento.service.EventService;
 import br.edu.uniritter.evento.service.exception.InvalidFieldException;
 import io.swagger.annotations.ApiOperation;
