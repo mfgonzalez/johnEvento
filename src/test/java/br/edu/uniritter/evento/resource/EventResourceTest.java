@@ -34,12 +34,11 @@ public class EventResourceTest {
         service = mock(EventService.class);
         resource = new EventResource(service);
         newEvent = new EventDto(EVENT_NAME, FUTURE_EVENT_DATE, TICKETS_SALES_START_DATE, TICKETS_SALES_END_DATE, new ArrayList<>());
-        createdEvent = new Event(1L, EVENT_NAME, FUTURE_EVENT_DATE, TICKETS_SALES_START_DATE, TICKETS_SALES_END_DATE, new ArrayList<>());
     }
 
     @Test
     public void salvarOk() throws Exception{
-        when(service.save(any(EventDto.class))).thenReturn(createdEvent);
+        when(service.save(any(EventDto.class))).thenReturn(newEvent);
         ResponseEntity responseEntity = resource.add(newEvent);
         assertEquals(201, responseEntity.getStatusCode().value());
     }

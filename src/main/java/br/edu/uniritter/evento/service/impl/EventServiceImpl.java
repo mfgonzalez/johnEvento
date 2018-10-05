@@ -1,5 +1,6 @@
 package br.edu.uniritter.evento.service.impl;
 
+import br.edu.uniritter.evento.converter.EventEntityToDto;
 import br.edu.uniritter.evento.converter.EventoDtoToEntity;
 import br.edu.uniritter.evento.dto.EventDto;
 import br.edu.uniritter.evento.model.Event;
@@ -17,24 +18,27 @@ import org.springframework.stereotype.Service;
 public class EventServiceImpl implements EventService {
 
     private EventRepository repository;
-    private EventoDtoToEntity converter;
+    private EventoDtoToEntity dtoToEntity;
+    private EventEntityToDto entityToDto;
+
 
     @Autowired
     public EventServiceImpl(EventRepository repository,
-                            NameValidator nameValidator,
-                            DateValidator dateValidator,
-                            EventoDtoToEntity converter) {
+                            EventoDtoToEntity dtoToEntity,
+                            EventEntityToDto entityToDto) {
         this.repository = repository;
-        this.converter = converter;
+        this.dtoToEntity = dtoToEntity;
+        this.entityToDto = entityToDto;
     }
 
-    public Event save(EventDto dto) throws InvalidFieldException {
-        Event event = converter.convert(dto);
+    public EventDto save(EventDto dto) throws InvalidFieldException {
+        Event event = dtoToEntity.convert(dto);
         NameValidator.validate(event.getName());
         DateValidator.validate(event.getDate());
         SalesDateValidator.validate(event.getTicketsSalesStartDateTime(), event.getTicketsSalesEndDateTime());
         TicketsValidator.validate(event.getAvailableTicketTypes());
-        return repository.save(event);
+        event = repository.save(event);
+        return entityToDto.convert(event);
     }
 
 }
