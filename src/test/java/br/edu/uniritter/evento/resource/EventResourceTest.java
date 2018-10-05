@@ -1,5 +1,6 @@
 package br.edu.uniritter.evento.resource;
 
+import br.edu.uniritter.evento.dto.EventDto;
 import br.edu.uniritter.evento.model.Event;
 import br.edu.uniritter.evento.service.EventService;
 import br.edu.uniritter.evento.service.exception.InvalidFieldException;
@@ -23,7 +24,7 @@ public class EventResourceTest {
     private static final LocalDateTime TICKETS_SALES_END_DATE = LocalDateTime.of(2018, 10, 30, 9, 30);
 
     private EventResource resource;
-    private Event newEvent;
+    private EventDto newEvent;
     private Event createdEvent;
 
     private EventService service;
@@ -32,20 +33,20 @@ public class EventResourceTest {
     public void setup() {
         service = mock(EventService.class);
         resource = new EventResource(service);
-        newEvent = new Event(null, EVENT_NAME, FUTURE_EVENT_DATE, TICKETS_SALES_START_DATE, TICKETS_SALES_END_DATE, new ArrayList<>());
+        newEvent = new EventDto(EVENT_NAME, FUTURE_EVENT_DATE, TICKETS_SALES_START_DATE, TICKETS_SALES_END_DATE, new ArrayList<>());
         createdEvent = new Event(1L, EVENT_NAME, FUTURE_EVENT_DATE, TICKETS_SALES_START_DATE, TICKETS_SALES_END_DATE, new ArrayList<>());
     }
 
     @Test
     public void salvarOk() throws Exception{
-        when(service.save(any(Event.class))).thenReturn(createdEvent);
+        when(service.save(any(EventDto.class))).thenReturn(createdEvent);
         ResponseEntity responseEntity = resource.add(newEvent);
         assertEquals(201, responseEntity.getStatusCode().value());
     }
 
     @Test(expected = InvalidFieldException.class)
     public void salvarErro() throws Exception{
-        when(service.save(any(Event.class))).thenThrow(new InvalidFieldException("Erro ao salvar"));
+        when(service.save(any(EventDto.class))).thenThrow(new InvalidFieldException("Erro ao salvar"));
         ResponseEntity responseEntity = resource.add(newEvent);
     }
 
