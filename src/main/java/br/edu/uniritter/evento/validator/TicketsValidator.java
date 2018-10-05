@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.Set;
 
 public class TicketsValidator {
+    public static void validate(List<TicketType> ticketTypes) throws InvalidFieldException {
+        if(containsDuplicated(ticketTypes)) {
+            throw new InvalidFieldException("O evento possui tipos de ingressos duplicados");
+        }
+    }
     private static boolean containsDuplicated(List<TicketType> ticketTypes) {
         if (ticketTypes != null) {
             Set<String> set = new HashSet<>();
