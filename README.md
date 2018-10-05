@@ -2,20 +2,18 @@
 Trabalho da disciplina de Introdução ao Desenvolvimento Ágil - Uniritter - 2018
 
 [![Build Status](https://travis-ci.org/mfgonzalez/johnEvento.svg?branch=master)](https://travis-ci.org/mfgonzalez/johnEvento)
-[![codecov](https://codecov.io/gh/mfgonzalez/johnEvento/branch/master/graph/badge.svg)](https://codecov.io/gh/mfgonzalez/johnEvento)
+![sonarcloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
 
-![sonarcloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-
-![coverage](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=coverage)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-![ncloc](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=ncloc)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-![duplicated_lines_density](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=duplicated_lines_density)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-![sqale_index](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=sqale_index)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-![sqale_rating](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=sqale_rating)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-![reliability_rating](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=reliability_rating)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-![bugs](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=bugs)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-![code_smells](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=code_smells)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-![security_rating](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=security_rating)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
-![vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=vulnerabilities)(https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![coverage](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=coverage)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![ncloc](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=ncloc)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![duplicated_lines_density](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![sqale_index](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=sqale_index)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![sqale_rating](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![reliability_rating](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![bugs](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=bugs)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![code_smells](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=code_smells)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![security_rating](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=security_rating)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
+![vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=mfgonzalez_johnEvento&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=mfgonzalez_johnEvento)
 
 # US#1 - Criar evento
 
