@@ -2,5 +2,5 @@ package br.edu.uniritter.evento.model;
 
 public interface TicketType {
     String getName();
-    Float getValue();
+    Float getValue(DiscountGroup discountGroup);
 }

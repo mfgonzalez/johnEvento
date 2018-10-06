@@ -7,7 +7,7 @@ public class VipTicket implements TicketType {
     }
 
     @Override
-    public Float getValue() {
-        return Float.valueOf(1000);
+    public Float getValue(DiscountGroup discountGroup) {
+        return 1000 * discountGroup.discount;
     }
 }

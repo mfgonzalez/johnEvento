@@ -22,34 +22,69 @@ public class TicketFactoryTest {
     public void validaIngressoVip() {
         TicketType ticketType = ticketFactory.getTicketType("VIP");
         assertEquals("VIP", ticketType.getName());
-        assertEquals(new Float(1000), ticketType.getValue());
+        assertEquals(new Float(1000), ticketType.getValue(DiscountGroup.NORMAL));
     }
 
     @Test
     public void validaIngressoBackstage() {
         TicketType ticketType = ticketFactory.getTicketType("BACKSTAGE");
         assertEquals("BACKSTAGE", ticketType.getName());
-        assertEquals(new Float(800), ticketType.getValue());
+        assertEquals(new Float(800), ticketType.getValue(DiscountGroup.NORMAL));
     }
 
     @Test
     public void validaIngressoPlateiaVip() {
         TicketType ticketType = ticketFactory.getTicketType("PLATEIA VIP");
         assertEquals("PLATEIA VIP", ticketType.getName());
-        assertEquals(new Float(500), ticketType.getValue());
+        assertEquals(new Float(500), ticketType.getValue(DiscountGroup.NORMAL));
     }
 
     @Test
     public void validaIngressoPlateia() {
         TicketType ticketType = ticketFactory.getTicketType("PLATEIA");
         assertEquals("PLATEIA", ticketType.getName());
-        assertEquals(Float.valueOf(300), ticketType.getValue());
+        assertEquals(Float.valueOf(300), ticketType.getValue(DiscountGroup.NORMAL));
     }
 
     @Test
     public void validaIngressoNaoExistente() {
         TicketType ticketType = ticketFactory.getTicketType("NAO EXISTE");
         assertNull(ticketType);
+    }
+
+    @Test
+    public void validaDescontoGold() {
+        TicketType ticketType = ticketFactory.getTicketType("VIP");
+        assertEquals("VIP", ticketType.getName());
+        assertEquals(new Float(750), ticketType.getValue(DiscountGroup.GOLD));
+    }
+
+    @Test
+    public void validaDescontoSilver() {
+        TicketType ticketType = ticketFactory.getTicketType("VIP");
+        assertEquals("VIP", ticketType.getName());
+        assertEquals(new Float(600), ticketType.getValue(DiscountGroup.SILVER));
+    }
+
+    @Test
+    public void validaDescontoIdoso() {
+        TicketType ticketType = ticketFactory.getTicketType("VIP");
+        assertEquals("VIP", ticketType.getName());
+        assertEquals(new Float(500), ticketType.getValue(DiscountGroup.IDOSO));
+    }
+
+    @Test
+    public void validaDescontoEstudante() {
+        TicketType ticketType = ticketFactory.getTicketType("VIP");
+        assertEquals("VIP", ticketType.getName());
+        assertEquals(new Float(500), ticketType.getValue(DiscountGroup.ESTUDANTE));
+    }
+
+    @Test
+    public void validaDescontoNormal() {
+        TicketType ticketType = ticketFactory.getTicketType("VIP");
+        assertEquals("VIP", ticketType.getName());
+        assertEquals(new Float(1000), ticketType.getValue(DiscountGroup.NORMAL));
     }
 
 }

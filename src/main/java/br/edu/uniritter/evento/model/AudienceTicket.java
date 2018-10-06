@@ -7,7 +7,7 @@ public class AudienceTicket implements TicketType {
     }
 
     @Override
-    public Float getValue() {
-        return Float.valueOf(300);
+    public Float getValue(DiscountGroup discountGroup) {
+        return 300 * discountGroup.discount;
     }
 }

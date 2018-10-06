@@ -7,7 +7,7 @@ public class BackstageTicket implements TicketType {
     }
 
     @Override
-    public Float getValue() {
-        return Float.valueOf(800);
+    public Float getValue(DiscountGroup discountGroup) {
+        return 800 * discountGroup.discount;
     }
 }
