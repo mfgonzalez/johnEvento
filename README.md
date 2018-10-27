@@ -14,6 +14,8 @@ Trabalho da disciplina de Introdução ao Desenvolvimento Ágil - Uniritter - 20
 [![security_rating](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=security_rating)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
 [![vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=br.edu.uniritter.evento%3AjohnEvento&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=br.edu.uniritter.evento%3AjohnEvento)
 
+[![](https://codescene.io/projects/3559/status.svg) Get more details at **codescene.io**.](https://codescene.io/projects/3559/jobs/latest-successful/results)
+
 # US#1 - Criar evento
 
 História:
